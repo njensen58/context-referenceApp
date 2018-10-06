@@ -38,12 +38,34 @@ export class SectionContextProvider extends Component {
                 })
     }
 
+    deleteSection = sectionId => {
+        sectionAxios.delete(`/api/section/${sectionId}`)
+            .then(res => {
+                this.setState(prevState => ({
+                    currentSections: prevState.currentSections.filter(section => section._id !== sectionId)
+                }))
+                return res
+            })
+    }
+
+    editSection = (sectionId, updateInfo) => {
+        sectionAxios.put(`/api/section/${sectionId}/`, updateInfo)
+            .then(res => {
+                this.setState(prevState => ({
+                    currentSections: prevState.currentSections.map(section => section._id === sectionId ? res.data : section)
+                }))
+                return res
+            })
+    }
+
     render(){
         return (
             <SectionContext.Provider
                 value={{
                     getSections: this.getSections,
                     createSection: this.createSection,
+                    deleteSection: this.deleteSection,
+                    editSection: this.editSection,
                     ...this.state
                 }}
             >

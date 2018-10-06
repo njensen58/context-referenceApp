@@ -1,16 +1,10 @@
-.stack-page {
-    
-}
-
-.stack-page h3 {
+.question-page h3 {
     text-align: center;
     width: 100%;
     color: #ddd;
-    position: absolute;
-    padding: 5px;
 }
 
-.stack-page button:nth-child(1) {
+.question-page button:nth-child(1) {
     position: absolute;
     z-index: 1;
     bottom: 0;
@@ -22,11 +16,11 @@
     padding: 5px;
 }
 
-.stacks-container {
+.questions-container {
 
 }
 
-.add-stack-form {
+.add-question-form {
     height: 200px;
     border: 1px solid black;
     flex-direction: column;
@@ -39,20 +33,21 @@
     width: 100%;
 }
 
-.add-stack-form input {
+.add-question-form input {
     padding: 3px;
-    z-index: 1
+    z-index: 1;
 }
 
-.add-stack-form button {
+.add-question-form textarea {
+    width: 90%;
+    padding: 5px;
+}
+
+.add-question-form button {
     z-index: 1;
     color: #ddd;
-    border: 1px solid black;
     background-color:#333;
+    border: 1px solid black;
     padding: 5px;
     border-radius: 4px;
-}
-
-.stack {
-
 }

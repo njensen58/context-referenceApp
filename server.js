@@ -18,12 +18,15 @@ mongoose.connect(`mongodb://localhost:27017/quizard`, { useNewUrlParser: true },
 app.use('/api', expressJwt({ secret: process.env.SECRET }))
 
 app.use('/auth', require('./routes/auth'))
+
+// Protected Routes - Add Edit Delete Stacks, Sections & Questions
 app.use('/api/stack', require('./routes/stack'))
 app.use('/api/section', require('./routes/section'))
 app.use('/api/question', require('./routes/question'))
 app.use('/api/user', require('./routes/user'))
 
-
+// Public Routes - Used to search for/save stacks and practice the questions
+app.use('/api/allstacks', require('./routes/public'))
 
 
 // Global error handling for uniformity
