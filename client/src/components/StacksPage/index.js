@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Toggle from '../../shared/Toggle'
 import Form from '../../shared/Form'
 import List from '../../shared/List'
@@ -10,20 +10,23 @@ import './stack.css'
 
 
 class StacksPage extends Component {
+
     componentDidMount(){
         const user = JSON.parse(localStorage.getItem("user"))
         this.props.getUserStacks(user._id)
-    }
+    } 
+    
     render(){
-        console.log(this.props)
         const { currentStacks, createStack, deleteStack, editStack } = this.props
         return (
             <div className="stack-page">
+
+                 {/* Add New Stack Form */}
                 <Toggle render={({ toggle: toggleAddForm, isToggled: isFormToggled}) => 
-                    <React.Fragment>
+                    <Fragment>
                         <button onClick={ toggleAddForm }>{ isFormToggled ? "Close" : "New Stack" }</button>
                         { isFormToggled && 
-                            <React.Fragment>
+                            <Fragment>
                                 <div className={ isFormToggled ? "overlay" : "" }></div>
                                 <h3>New Stack</h3>
                                 <Form 
@@ -34,13 +37,16 @@ class StacksPage extends Component {
                                                             .catch(err => console.log(err)) }
                                     render={ props => <StackSectionForm {...props} btnText="Submit" className="add-stack-form"/> }   
                                 /> 
-                            </React.Fragment>
+                            </Fragment>
                         }
-                    </React.Fragment>
+                    </Fragment>
                 }/>
+
+                {/* Stack List */}
                 <div className="stacks-container">
                     <List data={currentStacks} component={ Stack } rest={{ deleteStack, editStack }}/>
                 </div>
+
             </div>
         )
     }

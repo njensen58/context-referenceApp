@@ -3,3 +3,46 @@
     width: 100%;
     color: #ddd;
 }
+
+.section-page button:nth-child(1) {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    font-size: 18px;
+    background-color: dodgerblue;
+    display: flex; 
+    justify-content: center;
+    padding: 5px;
+}
+
+.sections-container {
+
+}
+
+.add-section-form {
+    height: 200px;
+    border: 1px solid black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    background-color: #3339;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+}
+
+.add-section-form input {
+    padding: 3px;
+    z-index: 1
+}
+
+.add-section-form button {
+    z-index: 1;
+    color: #ddd;
+    border: 1px solid black;
+    background-color:#333;
+    padding: 5px;
+    border-radius: 4px;
+}
