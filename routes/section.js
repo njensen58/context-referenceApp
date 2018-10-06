@@ -27,25 +27,26 @@ sectionRouter.route('/:stackId')
     })
 
 // Update and delete a specific stack
-// sectionRouter.route('/update/:sectionId')
-//     .put((req, res) => {
-//         Section.findOneAndUpdate(
-//             {_id: req.params.sectionId, user: req.user._id}, 
-//             { new: true },
-//             (err, updatedSection) => {
-//                 if (err) return res.status(500).send(err)
-//                 return res.status(201).send(updatedSection)
-//         })
-//     })
-//     .delete((req, res) => {
-//         Section.findOneAndRemove(
-//             {_id: req.params.sectionId, user: req.user._id},
-//             (err, deletedSection) => {
-//                 if (err) return res.status(500).send(err)
-//                 return res.status(204).send(deletedSection)
-//             }
-//         )
-//     })
+sectionRouter.route('/update/:sectionId')
+    .put((req, res) => {
+        Section.findOneAndUpdate(
+            {_id: req.params.sectionId},
+            req.body, 
+            { new: true },
+            (err, updatedSection) => {
+                if (err) return res.status(500).send(err)
+                return res.status(201).send(updatedSection)
+        })
+    })
+    .delete((req, res) => {
+        Section.findOneAndRemove(
+            {_id: req.params.sectionId},
+            (err, deletedSection) => {
+                if (err) return res.status(500).send(err)
+                return res.status(204).send(deletedSection)
+            }
+        )
+    })
 
 
 module.exports = sectionRouter

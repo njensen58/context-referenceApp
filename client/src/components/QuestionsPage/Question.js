@@ -2,29 +2,28 @@ import React, { Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
 import Toggle from '../../shared/Toggle'
 import Form from '../../shared/Form'
-import StackSectionForm from '../StacksPage/StackSectionForm'
+import QuestionForm from './QuestionForm'
 
-const Section = props => {
-    const { deleteSection, editSection, _id, title, description } = props
+const Question = props => {
+    const { deleteQuestion, editQuestion, _id, question, answer } = props
     return (
         <div>
             <Toggle render={({ toggle, isToggled }) => 
                 <Fragment>
                     { !isToggled 
                         ?   <Fragment>
-                                <span onClick={ toggle }>Edit</span><span onClick={() => deleteSection(_id)}>X</span>
-                                <p>{title}</p>
-                                <p>{description}</p>
-                                <button onClick={() => props.history.push(`/questions/${_id}`)}>Open</button>
+                                <span onClick={ toggle }>Edit</span><span onClick={() => deleteQuestion(_id)}>X</span>
+                                <p>?: {question}</p>
+                                <p>A: {answer}</p>
                             </Fragment>
                         :   <Fragment>
                                 <Form 
                                     reset
-                                    inputs={{ title: '', description: '' }}
-                                    submit={ inputs => editSection(_id, inputs)
+                                    inputs={{ question: '', answer: '' }}
+                                    submit={ inputs => editQuestion(_id, inputs)
                                                         .then(() => toggle())
                                                         .catch(err => console.log(err)) }
-                                    render={ props => <StackSectionForm {...props} btnText="Save" className="edit-section-form"/>} 
+                                    render={ props => <QuestionForm {...props} btnText="Save" className="edit-question-form"/>} 
                                 />
                                 <span onClick={ toggle }>Close</span>
                             </Fragment>
@@ -35,4 +34,4 @@ const Section = props => {
     );
 };
 
-export default withRouter(Section);
+export default withRouter(Question);

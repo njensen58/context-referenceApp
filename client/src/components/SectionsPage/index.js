@@ -8,14 +8,17 @@ import { withSection } from '../../context/sectionContext'
 import './section.css'
 
 class SectionsPage extends Component {
+
     componentDidMount(){
         this.props.getSections(this.props.match.params.stackId)
     }
+
     render(){
-        console.log(this.props)
-        const { createSection, currentSections } = this.props
+        const { createSection, currentSections, deleteSection, editSection } = this.props
         return (
-            <div className="sections-page">
+            <div className="section-page">
+
+                {/* Add New Section */}
                 <Toggle render={({ toggle: toggleAddForm, isToggled: isFormToggled }) => 
                     <Fragment>
                         <button onClick={ toggleAddForm }>{ isFormToggled ? "Close" : "New Section" }</button>
@@ -35,8 +38,10 @@ class SectionsPage extends Component {
                                 }
                     </Fragment>
                 }/>
+
+                {/* Section List */}
                 <div>
-                    <List data={ currentSections } component={ Section }/>
+                    <List data={ currentSections } component={ Section } rest={{ deleteSection, editSection }}/>
                 </div>
             </div>
         );
