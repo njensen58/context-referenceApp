@@ -17,6 +17,7 @@ class StacksPage extends Component {
     } 
     
     render(){
+        console.log(this.props)
         const { currentStacks, createStack, deleteStack, editStack } = this.props
         return (
             <div className="stack-page">

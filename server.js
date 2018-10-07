@@ -26,7 +26,8 @@ app.use('/api/question', require('./routes/question'))
 app.use('/api/user', require('./routes/user'))
 
 // Public Routes - Used to search for/save stacks and practice the questions
-app.use('/allstacks', require('./routes/public'))
+app.use('/public', require('./routes/public'))
+
 
 
 // Global error handling for uniformity

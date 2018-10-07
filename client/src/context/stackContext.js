@@ -21,8 +21,9 @@ export class StackContextProvider extends Component {
     }
 
     getAllStacks = () => {
-        axios.get('/allstacks')
+        axios.get('/public/allstacks')
             .then(res => {
+                console.log(res)
                 this.setState(() => ({
                     currentStacks: res.data
                 }))

@@ -58,10 +58,21 @@ export class SectionContextProvider extends Component {
             })
     }
 
+    getPublicSections = stackId => {
+        axios.get(`/public/sections/${stackId}`)
+            .then(res => {
+                this.setState(prevState => ({
+                    currentSections: res.data
+                }))
+                return res
+            })
+    }
+
     render(){
         return (
             <SectionContext.Provider
                 value={{
+                    getPublicSections: this.getPublicSections,
                     getSections: this.getSections,
                     createSection: this.createSection,
                     deleteSection: this.deleteSection,

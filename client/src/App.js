@@ -4,9 +4,11 @@ import StacksPage from './components/StacksPage'
 import SectionsPage from './components/SectionsPage'
 import QuestionsPage from './components/QuestionsPage'
 import SearchStacksPage from './components/SearchStacksPage'
+import QuizContainer from './components/QuizContainer'
 import ProtectedRoute from './shared/ProtectedRoute'
 import { withUser } from './context/userContext'
 import { Route, Redirect, Switch } from 'react-router-dom'
+import PublicSectionsPage from './components/PublicSectionsPage';
 
 
 class App extends Component {
@@ -20,7 +22,9 @@ class App extends Component {
                 { loading 
                 ? <div> Loading... </div>
                 :   <Switch>
-                        <Route exact path="/" component={ SearchStacksPage } />
+                        <Route exact path="/" render={props =>  <SearchStacksPage {...props} user={user}/> } />
+                        <Route exact path="/p/sections/:stackId" render={props => <PublicSectionsPage {...props} user={user}/>}/> 
+                        <Route exact path="/quiz/:sectionId" render={props => <QuizContainer {...props} user={user} />}/>
                         <Route 
                             path="/login" 
                             render={props => token
