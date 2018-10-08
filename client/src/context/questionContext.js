@@ -21,6 +21,18 @@ export class QuestionContextProvider extends Component {
     getSectionQuestions = sectionId => {
         questionAxios.get(`/api/question/${sectionId}`)
             .then(res => {
+                console.log(res.data)
+                this.setState(prevState => ({
+                    currentQuestions: res.data
+                }))
+                return res
+            })
+    }
+
+    getPublicQuestions = sectionId => {
+        axios.get(`/public/questions/${sectionId}`)
+            .then(res => {
+                console.log(res.data)
                 this.setState(prevState => ({
                     currentQuestions: res.data
                 }))
@@ -62,6 +74,7 @@ export class QuestionContextProvider extends Component {
        return (
             <QuestionContext.Provider
                 value={{
+                    getPublicQuestions: this.getPublicQuestions,
                     getSectionQuestions: this.getSectionQuestions,
                     createQuestion: this.createQuestion,
                     deleteQuestion: this.deleteQuestion,

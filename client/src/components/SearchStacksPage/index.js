@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import List from '../../shared/List'
+import AnimatedList from '../../shared/AnimatedList'
 import Form from '../../shared/Form'
 import Toggle from '../../shared/Toggle'
 import SearchForm from './SearchForm'
@@ -44,7 +44,12 @@ class SearchStacksPage extends Component {
                 
                 {/* Stack List */}
                 <div>
-                    <List data={currentStacks} component={ PublicStack } rest={{ }}/>
+                    <AnimatedList
+                        classNames="slide-in"
+                        timeout={300} 
+                        data={currentStacks} 
+                        component={ PublicStack } 
+                        rest={{ }}/>
                 </div>
             </div>
         )

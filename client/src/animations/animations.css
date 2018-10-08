@@ -1,0 +1,33 @@
+/*//////////////////////////////*/
+/* List Item Slide-In Animation */
+.slide-in-appear {
+    opacity: 0;
+    transform: translateX(-40vw);
+    z-index: 1;
+}
+
+.slide-in-appear.slide-in-appear-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms linear, transform 300ms linear;
+}
+
+.slide-in-enter {
+    opacity: 0;
+    transform: translateX(-40vw);
+    z-index: 1;
+}
+
+.slide-in-enter.slide-in-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms linear, transform 300ms linear;
+}
+/*----------------------------*/
+
+/*////////////////////////////////*/
+/* Add Item Fade-In-Out Animation */
+
+
+
+/*----------------------------*/

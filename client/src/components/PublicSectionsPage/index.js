@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import List from '../../shared/List'
+import React, { Component } from 'react'
+import AnimatedList from '../../shared/AnimatedList'
 import PublicSection from './PublicSection'
 import { withSection } from '../../context/sectionContext'
 
@@ -12,11 +12,12 @@ class PublicSectionsPage extends Component {
     render(){
         const { currentSections } = this.props
         return (
-            <div>
-
-
-                <List data={currentSections} component={PublicSection} rest={{ }}/>
-            </div>
+                <AnimatedList 
+                    classNames="slide-in"
+                    timeout={300} 
+                    data={currentSections} 
+                    component={PublicSection} 
+                    rest={{ }}/>
         )
     }
 }

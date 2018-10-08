@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Toggle from '../../shared/Toggle'
 import Form from '../../shared/Form'
-import List from '../../shared/List'
+import AnimatedList from '../../shared/AnimatedList'
 import Section from './Section'
 import StackSectionForm from '../StacksPage/StackSectionForm'
 import { withSection } from '../../context/sectionContext'
@@ -41,7 +41,12 @@ class SectionsPage extends Component {
 
                 {/* Section List */}
                 <div>
-                    <List data={ currentSections } component={ Section } rest={{ deleteSection, editSection }}/>
+                    <AnimatedList 
+                        classNames="slide-in"
+                        timeout={300}
+                        data={ currentSections } 
+                        component={ Section } 
+                        rest={{ deleteSection, editSection }}/>
                 </div>
             </div>
         );

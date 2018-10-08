@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Toggle from '../../shared/Toggle'
 import Form from '../../shared/Form'
-import List from '../../shared/List'
+import AnimatedList from '../../shared/AnimatedList'
 import Question from './Question'
 import QuestionForm from './QuestionForm'
 import { withQuestion } from '../../context/questionContext'
@@ -42,7 +42,12 @@ class QuestionsPage extends Component {
 
                 {/* Question List */}
                 <div>
-                    <List data={ currentQuestions } component={ Question } rest={{ deleteQuestion, editQuestion }}/>
+                    <AnimatedList 
+                        classNames="slide-in"
+                        timeout={300}
+                        data={ currentQuestions } 
+                        component={ Question } 
+                        rest={{ deleteQuestion, editQuestion }}/>
                 </div>
 
             </div>
