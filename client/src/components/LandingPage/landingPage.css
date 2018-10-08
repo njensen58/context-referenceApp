@@ -1,0 +1,19 @@
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #333;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.landing-page a {
+    border: 2px solid darkblue;
+    font-size: 26px;
+    padding: 20px;
+    border-radius: 3px;
+    width: 200px;
+    text-align: center;
+}

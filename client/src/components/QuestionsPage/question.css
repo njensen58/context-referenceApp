@@ -6,14 +6,37 @@
 
 .question-page button:nth-child(1) {
     position: absolute;
-    z-index: 1;
-    bottom: 0;
-    width: 100%;
-    font-size: 18px;
+    z-index: 2;
+    right: 0;
+    bottom: 50px;
     background-color: dodgerblue;
     display: flex; 
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
     justify-content: center;
-    padding: 5px;
+    align-items: center;
+    border-radius: 50%;
+    margin: 2px;
+    outline: none;
+}
+
+.question-page button:nth-child(2) {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 50px;
+    background-color: #333;
+    color: #ddd;
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25%;
+    outline: none;
+    margin: 2px;
 }
 
 .questions-container {
@@ -31,6 +54,7 @@
     z-index: 1;
     position: absolute;
     width: 100%;
+    margin-top: 30%;
 }
 
 .add-question-form input {
@@ -41,6 +65,7 @@
 .add-question-form textarea {
     width: 90%;
     padding: 5px;
+    resize: none;
 }
 
 .add-question-form button {

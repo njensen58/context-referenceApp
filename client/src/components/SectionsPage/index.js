@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import Toggle from '../../shared/Toggle'
 import Form from '../../shared/Form'
-import List from '../../shared/List'
+import AnimatedList from '../../shared/AnimatedList'
 import Section from './Section'
 import StackSectionForm from '../StacksPage/StackSectionForm'
 import { withSection } from '../../context/sectionContext'
+import { PopUp } from '../../animations/animations.js'
 import './section.css'
 
 class SectionsPage extends Component {
@@ -21,18 +22,21 @@ class SectionsPage extends Component {
                 {/* Add New Section */}
                 <Toggle render={({ toggle: toggleAddForm, isToggled: isFormToggled }) => 
                     <Fragment>
-                        <button onClick={ toggleAddForm }>{ isFormToggled ? "Close" : "New Section" }</button>
+                        <button onClick={ toggleAddForm }>{ isFormToggled ? "-" : "+" }</button>
                                 { isFormToggled && 
                                     <Fragment>
                                         <div className={ isFormToggled ? "overlay" : "" }></div>
-                                        <h3>New Section</h3>
                                         <Form 
                                             reset
                                             inputs={{ title: '', description: '' }}
                                             submit={ inputs => createSection({ stack: this.props.match.params.stackId,  ...inputs })
                                                                     .then(() => toggleAddForm())
                                                                     .catch(err => console.log(err)) }
-                                            render={ props => <StackSectionForm {...props} btnText="Submit" className="add-stack-form"/> }   
+                                            render={ props => 
+                                                <PopUp>
+                                                    <StackSectionForm {...props} btnText="Submit" className="add-stack-form" formTitle="New Section"/> 
+                                                </PopUp>
+                                            }   
                                         /> 
                                     </Fragment>
                                 }
@@ -41,7 +45,12 @@ class SectionsPage extends Component {
 
                 {/* Section List */}
                 <div>
-                    <List data={ currentSections } component={ Section } rest={{ deleteSection, editSection }}/>
+                    <AnimatedList 
+                        classNames="slide-in"
+                        timeout={300}
+                        data={ currentSections } 
+                        component={ Section } 
+                        rest={{ deleteSection, editSection }}/>
                 </div>
             </div>
         );

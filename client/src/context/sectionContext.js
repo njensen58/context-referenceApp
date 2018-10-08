@@ -49,10 +49,20 @@ export class SectionContextProvider extends Component {
     }
 
     editSection = (sectionId, updateInfo) => {
-        sectionAxios.put(`/api/section/${sectionId}/`, updateInfo)
+        return sectionAxios.put(`/api/section/update/${sectionId}`, updateInfo)
             .then(res => {
                 this.setState(prevState => ({
                     currentSections: prevState.currentSections.map(section => section._id === sectionId ? res.data : section)
+                }))
+                return res
+            })
+    }
+
+    getPublicSections = stackId => {
+        axios.get(`/public/sections/${stackId}`)
+            .then(res => {
+                this.setState(prevState => ({
+                    currentSections: res.data
                 }))
                 return res
             })
@@ -62,6 +72,7 @@ export class SectionContextProvider extends Component {
         return (
             <SectionContext.Provider
                 value={{
+                    getPublicSections: this.getPublicSections,
                     getSections: this.getSections,
                     createSection: this.createSection,
                     deleteSection: this.deleteSection,

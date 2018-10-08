@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react'
 import Toggle from '../../shared/Toggle'
 import Form from '../../shared/Form'
-import List from '../../shared/List'
+import AnimatedList from '../../shared/AnimatedList'
 import StackSectionForm from './StackSectionForm'
 import Stack from './Stack'
 import { withStack } from '../../context/stackContext'
 import { withUser } from '../../context/userContext'
+import { PopUp } from '../../animations/animations.js'
+import BottomNav from '../BottomNav'
 import './stack.css'
 
 
@@ -17,6 +19,7 @@ class StacksPage extends Component {
     } 
     
     render(){
+        console.log(this.props)
         const { currentStacks, createStack, deleteStack, editStack } = this.props
         return (
             <div className="stack-page">
@@ -24,29 +27,36 @@ class StacksPage extends Component {
                  {/* Add New Stack Form */}
                 <Toggle render={({ toggle: toggleAddForm, isToggled: isFormToggled}) => 
                     <Fragment>
-                        <button onClick={ toggleAddForm }>{ isFormToggled ? "Close" : "New Stack" }</button>
-                        { isFormToggled && 
-                            <Fragment>
-                                <div className={ isFormToggled ? "overlay" : "" }></div>
-                                <h3>New Stack</h3>
+                        <button onClick={ toggleAddForm }>{ isFormToggled ? "-" : "+" }</button>                
+                        { isFormToggled &&    
+                            <Fragment>                                         
+                                <div className={ isFormToggled ? "overlay" : "" }></div> 
                                 <Form 
                                     reset
                                     inputs={{ title: '', description: '' }}
                                     submit={ inputs => createStack(inputs)
                                                             .then(() => toggleAddForm())
                                                             .catch(err => console.log(err)) }
-                                    render={ props => <StackSectionForm {...props} btnText="Submit" className="add-stack-form"/> }   
+                                    render={ props =>                             
+                                                <PopUp>
+                                                    <StackSectionForm {...props} btnText="Submit" className="add-stack-form" formTitle="New Stack"/>
+                                                </PopUp>         
+                                    }
                                 /> 
                             </Fragment>
-                        }
+                        }                    
                     </Fragment>
                 }/>
 
                 {/* Stack List */}
                 <div className="stacks-container">
-                    <List data={currentStacks} component={ Stack } rest={{ deleteStack, editStack }}/>
+                    <AnimatedList 
+                        classNames="slide-in"
+                        timeout={300}
+                        data={currentStacks} 
+                        component={ Stack } 
+                        rest={{ deleteStack, editStack }}/>
                 </div>
-
             </div>
         )
     }

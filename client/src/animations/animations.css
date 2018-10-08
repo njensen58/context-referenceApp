@@ -1,0 +1,104 @@
+/*//////////////////////////////*/
+/* List Item Slide-In Animation */
+.slide-in-appear {
+    opacity: 0;
+    transform: translateX(-40vw);
+    z-index: 1;
+}
+
+.slide-in-appear.slide-in-appear-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms linear, transform 300ms linear;
+}
+
+.slide-in-enter {
+    opacity: 0;
+    transform: translateX(-40vw);
+    z-index: 1;
+}
+
+.slide-in-enter.slide-in-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms linear, transform 300ms linear;
+}
+/*----------------------------*/
+
+
+
+/*////////////////////////////////*/
+/* Add Item Fade-In-Out Animation */
+.popup-appear {
+    transform: scale(.10);
+    z-index: 1;
+}
+
+.popup-appear.popup-appear-active {
+    transform: scale(1);
+    transition: transform 150ms linear;
+}
+
+.popup-enter {
+    transform: scale(0);
+    z-index: 1;
+}
+
+.popup-enter.popup.enter.active {
+    transform:  scale(1);
+    transition: transform 150ms linear;
+}
+
+
+/*----------------------------*/
+
+
+
+/*///////////////////////*/
+/* Page Change Animation */
+
+.page-change-appear {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    transform: translateX(-100vw);
+    z-index: 1;
+}
+
+.page-change-appear.page-change-appear-active {
+    transform: translateX(0);
+    transition: transform 300ms linear 600ms;
+    width: 100vw;
+}
+
+.page-change-enter {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+.page-change-enter.page-change-enter-active {
+    transform: translateX(0);
+    transition: transform 200ms linear;
+    width: 100vw;
+}
+
+.page-change-exit {
+    position: absolute;
+    transform: translateX(0);
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+.page-change-exit.page-change-exit-active {
+    transform: translateX(100vw);
+    transition: transform 300ms linear;
+}
+
+.page-change-exit-done {
+    transform: translateX(100vw)
+}
+
+/*----------------------------*/

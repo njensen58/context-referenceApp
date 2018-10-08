@@ -20,8 +20,15 @@ export class StackContextProvider extends Component {
         }
     }
 
-    getTopStacks = (userId) => {
-   
+    getAllStacks = () => {
+        axios.get('/public/allstacks')
+            .then(res => {
+                console.log(res)
+                this.setState(() => ({
+                    currentStacks: res.data
+                }))
+                return res
+            })
     }
 
     getUserStacks = userId => {
@@ -33,10 +40,6 @@ export class StackContextProvider extends Component {
                 }))
                 return res
             })
-    }
-
-    getSpecificStack = stackId => {
-
     }
 
     getFilteredStacks = query => {
@@ -78,7 +81,7 @@ export class StackContextProvider extends Component {
         return( 
             <StackContext.Provider
                 value={{
-                    getTopStacks: this.getTopStacks,
+                    getAllStacks: this.getAllStacks,
                     getUserStacks: this.getUserStacks,
                     getSpecificStack: this.getSpecificStack,
                     getFilteredStacks: this.getFilteredStacks,

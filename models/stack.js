@@ -10,6 +10,10 @@ const stackSchema = new Schema({
         type: String,
         default: ''
     },
+    category: {
+        type: String,
+        enum: ["Computer Science", "JavaScript", "HTML", "CSS", "NodeJS", "ReactJS", "Algorithms"]
+    },
     likes: {
         type: Number,
         default: 0

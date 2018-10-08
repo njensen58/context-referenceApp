@@ -7,6 +7,7 @@ import { SectionContextProvider } from './context/sectionContext'
 import { QuestionContextProvider } from './context/questionContext'
 import App from './App'
 import './index.css'
+import './animations/animations.css'
 
 ReactDOM.render(
     <UserContextProvider>
