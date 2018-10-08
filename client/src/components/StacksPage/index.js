@@ -6,6 +6,8 @@ import StackSectionForm from './StackSectionForm'
 import Stack from './Stack'
 import { withStack } from '../../context/stackContext'
 import { withUser } from '../../context/userContext'
+import { CSSTransition } from 'react-transition-group'
+import { PopUp } from '../../animations/animations.js'
 import './stack.css'
 
 
@@ -25,20 +27,24 @@ class StacksPage extends Component {
                  {/* Add New Stack Form */}
                 <Toggle render={({ toggle: toggleAddForm, isToggled: isFormToggled}) => 
                     <Fragment>
-                        <button onClick={ toggleAddForm }>{ isFormToggled ? "Close" : "New Stack" }</button>
-                        { isFormToggled && 
-                            <Fragment>
-                                <div className={ isFormToggled ? "overlay" : "" }></div>
-                                <h3>New Stack</h3>
+                        <button onClick={ toggleAddForm }>{ isFormToggled ? "Close" : "New Stack" }</button>                     
+                        { isFormToggled &&    
+                            <Fragment>                                         
+                                <div className={ isFormToggled ? "overlay" : "" }></div> 
                                 <Form 
                                     reset
                                     inputs={{ title: '', description: '' }}
                                     submit={ inputs => createStack(inputs)
                                                             .then(() => toggleAddForm())
                                                             .catch(err => console.log(err)) }
-                                    render={ props => <StackSectionForm {...props} btnText="Submit" className="add-stack-form"/> }   
+                                    render={ props =>                             
+                                                <PopUp>
+                                                    <StackSectionForm {...props} btnText="Submit" className="add-stack-form" formTitle="New Stack"/>
+                                                </PopUp>         
+                                    }
                                 /> 
                             </Fragment>
+                        }
                         }
                     </Fragment>
                 }/>

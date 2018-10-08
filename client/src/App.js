@@ -9,6 +9,7 @@ import ProtectedRoute from './shared/ProtectedRoute'
 import { withUser } from './context/userContext'
 import { Route, Redirect, Switch } from 'react-router-dom'
 import PublicSectionsPage from './components/PublicSectionsPage';
+import LandingPage from './components/LandingPage'
 
 
 class App extends Component {
@@ -22,7 +23,8 @@ class App extends Component {
                 { loading 
                 ? <div> Loading... </div>
                 :   <Switch>
-                        <Route exact path="/" render={props =>  <SearchStacksPage {...props} user={user}/> } />
+                        <Route exact path="/" component={ LandingPage }/>
+                        <Route exact path="/allstacks" render={props =>  <SearchStacksPage {...props} user={user}/> }/>
                         <Route exact path="/p/sections/:stackId" render={props => <PublicSectionsPage {...props} user={user}/>}/> 
                         <Route exact path="/quiz/:sectionId" render={props => <QuizContainer {...props} user={user} />}/>
                         <Route 

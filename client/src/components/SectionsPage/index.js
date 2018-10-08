@@ -5,6 +5,7 @@ import AnimatedList from '../../shared/AnimatedList'
 import Section from './Section'
 import StackSectionForm from '../StacksPage/StackSectionForm'
 import { withSection } from '../../context/sectionContext'
+import { PopUp } from '../../animations/animations.js'
 import './section.css'
 
 class SectionsPage extends Component {
@@ -25,14 +26,17 @@ class SectionsPage extends Component {
                                 { isFormToggled && 
                                     <Fragment>
                                         <div className={ isFormToggled ? "overlay" : "" }></div>
-                                        <h3>New Section</h3>
                                         <Form 
                                             reset
                                             inputs={{ title: '', description: '' }}
                                             submit={ inputs => createSection({ stack: this.props.match.params.stackId,  ...inputs })
                                                                     .then(() => toggleAddForm())
                                                                     .catch(err => console.log(err)) }
-                                            render={ props => <StackSectionForm {...props} btnText="Submit" className="add-stack-form"/> }   
+                                            render={ props => 
+                                                <PopUp>
+                                                    <StackSectionForm {...props} btnText="Submit" className="add-stack-form" formTitle="New Section"/> 
+                                                </PopUp>
+                                            }   
                                         /> 
                                     </Fragment>
                                 }

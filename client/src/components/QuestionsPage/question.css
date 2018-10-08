@@ -41,6 +41,7 @@
 .add-question-form textarea {
     width: 90%;
     padding: 5px;
+    resize: none;
 }
 
 .add-question-form button {
