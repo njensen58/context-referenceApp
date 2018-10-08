@@ -49,7 +49,7 @@ export class SectionContextProvider extends Component {
     }
 
     editSection = (sectionId, updateInfo) => {
-        sectionAxios.put(`/api/section/${sectionId}/`, updateInfo)
+        return sectionAxios.put(`/api/section/update/${sectionId}`, updateInfo)
             .then(res => {
                 this.setState(prevState => ({
                     currentSections: prevState.currentSections.map(section => section._id === sectionId ? res.data : section)

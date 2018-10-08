@@ -3,9 +3,6 @@ import { Link, withRouter } from 'react-router-dom'
 import { withUser } from '../../context/userContext'
 import './navStyle.css'
 
-// If user is not logged in, provide a link to /login
-// For all screens accept Quiz-container;
-    // Bottom nav has: My Stacks, Review,
 
 const BottomNav = ({ token, history }) => {
     return(

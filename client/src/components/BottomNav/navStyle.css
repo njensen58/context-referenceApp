@@ -3,10 +3,12 @@
     bottom: 0;
     width: 100%;
     height: 50px;
-    border: 3px solid #333;
+    border: 1px solid #333;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border-radius: 3px;
+    padding: 2px;
 }
 
 .nav a,
@@ -17,6 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 2px;
 }
 
 .nav a {
@@ -25,5 +28,6 @@
 
 .nav button {
     width: 40px;
+    z-index: 0;
 }
 
