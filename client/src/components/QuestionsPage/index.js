@@ -23,7 +23,7 @@ class QuestionsPage extends Component {
                 {/* Add New Question */}
                 <Toggle render={({ toggle: toggleAddForm, isToggled: isFormToggled }) => 
                     <Fragment>
-                        <button onClick={ toggleAddForm }>{ isFormToggled ? "Close" : "New Question" }</button>
+                        <button onClick={ toggleAddForm }>{ isFormToggled ? "-" : "+" }</button> 
                                 { isFormToggled && 
                                     <Fragment>
                                         <div className={ isFormToggled ? "overlay" : "" }></div>

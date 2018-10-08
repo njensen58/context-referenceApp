@@ -6,8 +6,8 @@ import StackSectionForm from './StackSectionForm'
 import Stack from './Stack'
 import { withStack } from '../../context/stackContext'
 import { withUser } from '../../context/userContext'
-import { CSSTransition } from 'react-transition-group'
 import { PopUp } from '../../animations/animations.js'
+import BottomNav from '../BottomNav'
 import './stack.css'
 
 
@@ -27,7 +27,7 @@ class StacksPage extends Component {
                  {/* Add New Stack Form */}
                 <Toggle render={({ toggle: toggleAddForm, isToggled: isFormToggled}) => 
                     <Fragment>
-                        <button onClick={ toggleAddForm }>{ isFormToggled ? "Close" : "New Stack" }</button>                     
+                        <button onClick={ toggleAddForm }>{ isFormToggled ? "-" : "+" }</button>                
                         { isFormToggled &&    
                             <Fragment>                                         
                                 <div className={ isFormToggled ? "overlay" : "" }></div> 
@@ -44,8 +44,7 @@ class StacksPage extends Component {
                                     }
                                 /> 
                             </Fragment>
-                        }
-                        }
+                        }                    
                     </Fragment>
                 }/>
 
@@ -58,7 +57,6 @@ class StacksPage extends Component {
                         component={ Stack } 
                         rest={{ deleteStack, editStack }}/>
                 </div>
-
             </div>
         )
     }

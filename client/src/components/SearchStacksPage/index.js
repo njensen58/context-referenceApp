@@ -5,6 +5,7 @@ import Toggle from '../../shared/Toggle'
 import SearchForm from './SearchForm'
 import { withStack } from '../../context/stackContext'
 import PublicStack from './PublicStack'
+import BottomNav from '../BottomNav'
 import './publicStack.css'
 
 
@@ -14,8 +15,7 @@ class SearchStacksPage extends Component {
     }
 
     render(){
-        console.log(this.props)
-        const { currentStacks } = this.props
+        const { currentStacks, token } = this.props
         // Possibly a side menu with filtering options.
         // Stacks are laid out vertically like bricks stacked on one another
         // button to login at the bottom left if not logged in

@@ -51,3 +51,54 @@
 
 
 /*----------------------------*/
+
+
+
+/*///////////////////////*/
+/* Page Change Animation */
+
+.page-change-appear {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    transform: translateX(-100vw);
+    z-index: 1;
+}
+
+.page-change-appear.page-change-appear-active {
+    transform: translateX(0);
+    transition: transform 300ms linear 500ms;
+    width: 100vw;
+}
+
+.page-change-enter {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+.page-change-enter.page-change-enter-active {
+    transform: translateX(0);
+    transition: transform 300ms linear 300ms;
+    width: 100vw;
+}
+
+.page-change-exit {
+    position: absolute;
+    transform: translateX(0);
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+.page-change-exit.page-change-exit-active {
+    transform: translateX(100vw);
+    transition: transform 300ms linear;
+}
+
+.page-change-exit-done {
+    transform: translateX(100vw)
+}
+
+/*----------------------------*/

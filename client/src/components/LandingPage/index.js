@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './landingPage.css'
 
-const LandingPage = props => {
+const LandingPage = ({token}) => {
     return (
         <div className="landing-page">
-           <Link to="/login">Login</Link>
+           { !token && <Link to="/login">Login</Link> }
            <Link to="/allstacks">All Stacks</Link>
         </div>
     );
