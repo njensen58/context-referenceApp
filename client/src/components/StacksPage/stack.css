@@ -45,7 +45,8 @@
     margin: 2px;
 } */
 
-.stacks-container {
+.stacks-container,
+.public-sections-container {
     padding-top: 5px;
 }
 

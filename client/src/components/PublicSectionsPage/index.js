@@ -12,12 +12,14 @@ class PublicSectionsPage extends Component {
     render(){
         const { currentSections } = this.props
         return (
+            <div className="public-sections-container">
                 <AnimatedList 
                     classNames="slide-in"
                     timeout={300} 
                     data={currentSections} 
                     component={PublicSection} 
                     rest={{ }}/>
+            </div>
         )
     }
 }
