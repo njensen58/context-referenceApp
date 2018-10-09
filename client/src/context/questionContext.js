@@ -61,7 +61,7 @@ export class QuestionContextProvider extends Component {
     }
 
     editQuestion = (questionId, updateInfo) => {
-        return questionAxios.put(`/api/question/${questionId}`)
+        return questionAxios.put(`/api/question/${questionId}`, updateInfo)
                 .then(res => {
                     this.setState(prevState => ({
                         currentQuestions: prevState.currentQuestions.map(q => q._id === questionId ? res.data : q)

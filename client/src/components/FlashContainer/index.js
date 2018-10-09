@@ -23,7 +23,7 @@ class FlashContainer extends Component {
     constructor(props){
         super(props)
         this.state = {
-           questions: [{}],
+           questions: [{_id: ''}],
            count: 0
         }
     }

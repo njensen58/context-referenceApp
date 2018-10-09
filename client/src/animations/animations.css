@@ -67,7 +67,7 @@
 
 .page-change-appear.page-change-appear-active {
     transform: translateX(0);
-    transition: transform 300ms linear 600ms;
+    transition: transform 300ms linear 700ms;
     width: 100vw;
 }
 
@@ -80,7 +80,7 @@
 
 .page-change-enter.page-change-enter-active {
     transform: translateX(0);
-    transition: transform 200ms linear;
+    transition: transform 300ms linear 700ms;
     width: 100vw;
 }
 
@@ -94,7 +94,7 @@
 
 .page-change-exit.page-change-exit-active {
     transform: translateX(100vw);
-    transition: transform 300ms linear;
+    transition: transform 200ms linear;
 }
 
 .page-change-exit-done {

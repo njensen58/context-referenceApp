@@ -26,20 +26,20 @@ questionRouter.put('/:questionId', (req, res) => {
         {_id: req.params.questionId},
         req.body,
         {new: true},
-        (err, updatedQuestion => {
+        (err, updatedQuestion) => {
             if (err) return res.status(500).send(err)
             return res.status(201).send(updatedQuestion)
-        })
+        }
     )
 })
 
 questionRouter.delete('/:questionId', (req, res) => {
     Question.findOneAndRemove(
         {_id: req.params.questionId},
-        (err, deletedQuestion => {
+        (err, deletedQuestion) => {
             if (err) return res.status(500).send(err)
             return res.status(204).send(deletedQuestion)
-        })
+        }
     )
 })
 

@@ -18,7 +18,7 @@ export const PageTransition = props => {
     return (
         <TransitionGroup>
             <CSSTransition
-                in={true}
+         
                 appear={true}
                 key={props.location.key}
                 classNames="page-change"
