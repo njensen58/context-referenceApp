@@ -44,7 +44,7 @@ class SectionsPage extends Component {
                 }/>
 
                 {/* Section List */}
-                <div>
+                <div className="sections-container">
                     { currentSections.length > 0
                         ?   <AnimatedList 
                                 classNames="slide-in"

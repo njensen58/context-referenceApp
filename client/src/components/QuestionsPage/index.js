@@ -45,7 +45,7 @@ class QuestionsPage extends Component {
                 }/>
 
                 {/* Question List */}
-                <div>
+                <div className="questions-container">
                     { currentQuestions.length > 0
                         ?   <AnimatedList 
                                 classNames="slide-in"

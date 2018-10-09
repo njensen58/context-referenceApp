@@ -51,14 +51,12 @@ export const Fade = (props) => {
 
 export const SlideDown = props => {
     return (
-        
-            <CSSTransition 
-                {...props}
-                in={true}
-                appear={true}
-                timeout={800}
-                classNames="slide-down"
-            />
-       
+        <CSSTransition 
+            {...props}
+            in={true}
+            appear={true}
+            timeout={800}
+            classNames="slide-down"
+        />
     )
 }
