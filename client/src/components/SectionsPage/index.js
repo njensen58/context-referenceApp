@@ -44,13 +44,16 @@ class SectionsPage extends Component {
                 }/>
 
                 {/* Section List */}
-                <div>
-                    <AnimatedList 
-                        classNames="slide-in"
-                        timeout={300}
-                        data={ currentSections } 
-                        component={ Section } 
-                        rest={{ deleteSection, editSection }}/>
+                <div className="sections-container">
+                    { currentSections.length > 0
+                        ?   <AnimatedList 
+                                classNames="slide-in"
+                                timeout={300}
+                                data={ currentSections } 
+                                component={ Section } 
+                                rest={{ deleteSection, editSection }}/>
+                        : <h1>No Sections</h1>
+                    }
                 </div>
             </div>
         );

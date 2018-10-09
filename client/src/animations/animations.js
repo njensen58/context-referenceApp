@@ -17,8 +17,7 @@ export const PopUp = props => {
 export const PageTransition = props => {
     return (
         <TransitionGroup>
-            <CSSTransition
-         
+            <CSSTransition  
                 appear={true}
                 key={props.location.key}
                 classNames="page-change"
@@ -52,14 +51,12 @@ export const Fade = (props) => {
 
 export const SlideDown = props => {
     return (
-        
-            <CSSTransition 
-                {...props}
-                in={true}
-                appear={true}
-                timeout={800}
-                classNames="slide-down"
-            />
-       
+        <CSSTransition 
+            {...props}
+            in={true}
+            appear={true}
+            timeout={800}
+            classNames="slide-down"
+        />
     )
 }

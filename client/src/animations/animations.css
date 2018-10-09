@@ -9,7 +9,7 @@
 .slide-in-appear.slide-in-appear-active {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 300ms linear, transform 300ms linear;
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
 }
 
 .slide-in-enter {
@@ -21,7 +21,24 @@
 .slide-in-enter.slide-in-enter-active {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 300ms linear, transform 300ms linear;
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.slide-in-exit {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 1;
+}
+
+.slide-in-exit.slide-in-exit-active {
+    transform: translateX(100vw);
+    opacity: 0;
+    transition: all 300ms ease-out;
+}
+
+.slide-in-exit-done {
+    transform: translateX(100vw);
+    opacity: 0;
 }
 /*----------------------------*/
 
@@ -36,7 +53,7 @@
 
 .popup-appear.popup-appear-active {
     transform: scale(1);
-    transition: transform 150ms linear;
+    transition: transform 150ms ease-out;
 }
 
 .popup-enter {
@@ -46,7 +63,7 @@
 
 .popup-enter.popup.enter.active {
     transform:  scale(1);
-    transition: transform 150ms linear;
+    transition: transform 150ms ease-out;
 }
 
 
@@ -67,7 +84,7 @@
 
 .page-change-appear.page-change-appear-active {
     transform: translateX(0);
-    transition: transform 300ms linear 700ms;
+    transition: transform 300ms ease-out 700ms;
     width: 100vw;
 }
 
@@ -80,7 +97,7 @@
 
 .page-change-enter.page-change-enter-active {
     transform: translateX(0);
-    transition: transform 300ms linear 700ms;
+    transition: transform 300ms ease-out 700ms;
     width: 100vw;
 }
 
@@ -94,7 +111,7 @@
 
 .page-change-exit.page-change-exit-active {
     transform: translateX(100vw);
-    transition: transform 200ms linear;
+    transition: transform 200ms ease-out;
 }
 
 .page-change-exit-done {
@@ -118,13 +135,13 @@
 .fade-appear.fade-appear-active {
     opacity: 1;
     transform: scale(1);
-    transition: opacity 250ms linear 300ms, transform 250ms linear 300ms;
+    transition: opacity 250ms ease-out 300ms, transform 250ms ease-out 300ms;
 }
 
 .fade-enter.fade-enter-active {
     opacity: 1;
     transform: scale(1);
-    transition: opacity 250ms linear 300ms, transform 250ms linear 300ms;
+    transition: opacity 250ms ease-out 300ms, transform 250ms ease-out 300ms;
 }
 
 .fade-exit {
@@ -135,7 +152,7 @@
 .fade-exit.fade-exit-active {
     opacity: 0;
     transform: scale(.95);
-    transition: opacity 250ms linear;
+    transition: opacity 250ms ease-out;
 }
 
 .fade-exit-done {
@@ -161,7 +178,7 @@
 .slide-down-enter.slide-down-enter-active {
     opacity: 1;
     transform: translateY(0);
-    transition: all 800ms linear;
+    transition: all 800ms ease-out;
 }
 
 .slide-down-enter-done {
@@ -177,7 +194,7 @@
 .slide-down-exit.slide-down-exit-active {
     opacity: 0;
     transform: translateY(-100px);
-    transition: all 800ms linear;
+    transition: all 800ms ease-out;
 }
 
 .slide-down-done {

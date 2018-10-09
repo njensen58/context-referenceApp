@@ -52,7 +52,7 @@ class StacksPage extends Component {
                 <div className="stacks-container">
                     <AnimatedList 
                         classNames="slide-in"
-                        timeout={300}
+                        timeout={600}
                         data={currentStacks} 
                         component={ Stack } 
                         rest={{ deleteStack, editStack }}/>
