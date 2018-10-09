@@ -30,7 +30,7 @@ export class QuestionContextProvider extends Component {
     }
 
     getPublicQuestions = sectionId => {
-        axios.get(`/public/questions/${sectionId}`)
+        return axios.get(`/public/questions/${sectionId}`)
             .then(res => {
                 console.log(res.data)
                 this.setState(prevState => ({

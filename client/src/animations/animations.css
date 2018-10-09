@@ -102,3 +102,88 @@
 }
 
 /*----------------------------*/
+
+
+
+
+/*/////////////////////*/
+/* Fade Card Animation */
+.fade-appear,
+.fade-enter {
+    opacity: 0;
+    z-index: 2;
+    transform: scale(.95);
+}
+
+.fade-appear.fade-appear-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 250ms linear 300ms, transform 250ms linear 300ms;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 250ms linear 300ms, transform 250ms linear 300ms;
+}
+
+.fade-exit {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transform: scale(.95);
+    transition: opacity 250ms linear;
+}
+
+.fade-exit-done {
+    opacity: 0;
+    transform: scale(.95);
+}
+
+
+/*/////////////////////*/
+
+
+
+
+
+/*//////////////////////*/
+/* Slide Down Animation */
+.slide-down-enter {
+    opacity: 0;
+    z-index: 1;
+    transform: translateY(-100px);
+}
+
+.slide-down-enter.slide-down-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 800ms linear;
+}
+
+.slide-down-enter-done {
+
+}
+
+.slide-down-exit {
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0);
+}
+
+.slide-down-exit.slide-down-exit-active {
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: all 800ms linear;
+}
+
+.slide-down-done {
+    opacity: 0;
+    transform: translateY(-100px);
+}
+
+
+/*//////////////////////*/

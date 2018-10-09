@@ -7,7 +7,7 @@ import StackSectionForm from '../StacksPage/StackSectionForm'
 const Section = props => {
     const { deleteSection, editSection, _id, title, description } = props
     return (
-        <div>
+        <div className="section">
             <Toggle render={({ toggle, isToggled }) => 
                 <Fragment>
                     { !isToggled 
