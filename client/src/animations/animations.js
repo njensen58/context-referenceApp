@@ -17,8 +17,7 @@ export const PopUp = props => {
 export const PageTransition = props => {
     return (
         <TransitionGroup>
-            <CSSTransition
-         
+            <CSSTransition  
                 appear={true}
                 key={props.location.key}
                 classNames="page-change"

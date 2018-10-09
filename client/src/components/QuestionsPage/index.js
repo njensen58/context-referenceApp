@@ -46,12 +46,15 @@ class QuestionsPage extends Component {
 
                 {/* Question List */}
                 <div>
-                    <AnimatedList 
-                        classNames="slide-in"
-                        timeout={300}
-                        data={ currentQuestions } 
-                        component={ Question } 
-                        rest={{ deleteQuestion, editQuestion }}/>
+                    { currentQuestions.length > 0
+                        ?   <AnimatedList 
+                                classNames="slide-in"
+                                timeout={300}
+                                data={ currentQuestions } 
+                                component={ Question } 
+                                rest={{ deleteQuestion, editQuestion }}/>
+                        :   <h1>No Questions</h1>
+                    }
                 </div>
 
             </div>
