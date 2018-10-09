@@ -2,6 +2,7 @@ const express = require('express')
 const authRouter = express.Router()
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
+const secret = process.env.SECRET
 
 
 authRouter.post('/signup', (req, res) => {
@@ -14,7 +15,7 @@ authRouter.post('/signup', (req, res) => {
         newUser.save((err, user) => {
             if (err) return res.status(500).send({success: false, message: "That username is already taken"})
 
-            const token = jwt.sign(user.withoutPassword(), process.env.SECRET)
+            const token = jwt.sign(user.withoutPassword(), secret)
             return res.status(201).send({success: true, user: user.withoutPassword(), token})
         })
     })
@@ -30,7 +31,7 @@ authRouter.post('/login', (req, res) => {
         user.checkPassword(req.body.password, (err, match) => {
             if (err) return res.status(500).send(err)
             if (!match) return res.status(401).send({success: false, message: "Username or Password are incorrect"})
-            const token = jwt.sign(user.withoutPassword(), process.env.SECRET)
+            const token = jwt.sign(user.withoutPassword(), secret)
             return res.send({token: token, user: user.withoutPassword(), success: true})
         })
     })
