@@ -7,7 +7,7 @@ import QuestionForm from './QuestionForm'
 const Question = props => {
     const { deleteQuestion, editQuestion, _id, question, answer } = props
     return (
-        <div>
+        <div className="question">
             <Toggle render={({ toggle, isToggled }) => 
                 <Fragment>
                     { !isToggled 

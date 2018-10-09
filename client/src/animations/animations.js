@@ -29,3 +29,37 @@ export const PageTransition = props => {
         </TransitionGroup>
     )
 }
+
+export const Fade = (props) => {
+    console.log(props)
+    return (
+        <TransitionGroup>         
+            <CSSTransition
+                {...props}
+                in={true}
+                appear={true}
+                key={props.id}
+                timeout={800}
+                classNames="fade"
+            >
+            { props.children }
+        </CSSTransition>
+        </TransitionGroup>
+    )
+}
+
+
+
+export const SlideDown = props => {
+    return (
+        
+            <CSSTransition 
+                {...props}
+                in={true}
+                appear={true}
+                timeout={800}
+                classNames="slide-down"
+            />
+       
+    )
+}

@@ -16,7 +16,6 @@ mongoose.connect(`mongodb://localhost:27017/quizard`, { useNewUrlParser: true },
 
 
 app.use('/api', expressJwt({ secret: process.env.SECRET }))
-
 app.use('/auth', require('./routes/auth'))
 
 // Protected Routes - Add Edit Delete Stacks, Sections & Questions
@@ -38,5 +37,6 @@ app.use((err, req, res, next) => {
     }
     return res.send({ message: err.message })
 })
+
 
 app.listen(PORT, () => console.log(`[+]Server is running on port ${PORT}`))

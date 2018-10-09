@@ -4,7 +4,7 @@ import StacksPage from './components/StacksPage'
 import SectionsPage from './components/SectionsPage'
 import QuestionsPage from './components/QuestionsPage'
 import SearchStacksPage from './components/SearchStacksPage'
-import QuizContainer from './components/QuizContainer'
+import FlashContainer from './components/FlashContainer'
 import ProtectedRoute from './shared/ProtectedRoute'
 import BottomNav from './components/BottomNav'
 import UserProfile from './components/UserProfile'
@@ -30,7 +30,7 @@ class App extends Component {
                             <Route exact path="/"                    render={props => <LandingPage {...props} token={token}/> }/>
                             <Route exact path="/allstacks"           render={props => <SearchStacksPage {...props} user={user}/> }/>
                             <Route exact path="/p/sections/:stackId" render={props => <PublicSectionsPage {...props} user={user}/> }/> 
-                            <Route exact path="/quiz/:sectionId"     render={props => <QuizContainer {...props} user={user}/> }/>
+                            <Route exact path="/quiz/:sectionId"     render={props => <FlashContainer {...props} user={user}/> }/>
                             <Route 
                                 path="/login" 
                                 render={props => token
@@ -60,7 +60,7 @@ class App extends Component {
                         </Switch>
                     </PageTransition>
                 }
-                { location.pathname !== '/login' && <BottomNav /> }
+                { (location.pathname.slice(0, 4) !== '/qui' && location.pathname !== '/login') && <BottomNav /> }
             </div>
         )
     }
