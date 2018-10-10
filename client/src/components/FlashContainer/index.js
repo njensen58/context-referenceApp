@@ -16,9 +16,6 @@ import './flashStyles.css'
     // Top left has a "Quit" button
     // Top right has a count of which card / how many cards total
 
-
-
-
 class FlashContainer extends Component {
     constructor(props){
         super(props)
@@ -55,8 +52,10 @@ class FlashContainer extends Component {
     }
 
     quit = () => {
-        // clear state
-        // route back to /allstacks
+        this.setState({
+            questions: [{_id: ''}],
+            count: 0
+        }, () => this.props.history.push('/allstacks'))
     }
 
     render(){
@@ -65,9 +64,7 @@ class FlashContainer extends Component {
             <div className="flash-container">
                 <button onClick={this.quit}>Quit</button>
                     <div className="question-container">
-                        <Fade
-                            id={questions[count]._id}
-                        >
+                        <Fade id={questions[count]._id}>
                             <QuestionCard currentQuestion={questions[count]}/>
                         </Fade> 
                     </div>

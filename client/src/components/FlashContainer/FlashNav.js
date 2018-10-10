@@ -4,8 +4,8 @@ const FlashNav = props => {
     const { nextQ, prevQ } = props
     return (
         <div className="flash-nav">
-            <button onClick={prevQ}>{"<="}</button>
-            <button onClick={nextQ}>{"=>"}</button>
+            <button onClick={prevQ}>{"Prev"}</button>
+            <button onClick={nextQ}>{"Next"}</button>
         </div>
     )
 }

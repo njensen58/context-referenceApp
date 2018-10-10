@@ -6,9 +6,9 @@ const QuestionHeader = props => {
         <Fragment>
             <div className="question-header">
                 <h3>{ question }</h3>
-                <span>0</span>
+                <span>Book</span>
             </div>
-            <span onClick={ toggle }> V </span>
+            <button onClick={ toggle } className="show-answer-btn"> Answer </button>
         </Fragment>
     );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 
 const QuestionAnswer = props => {
-    const { answer, isToggled } = props
+    const { answer } = props
     return (
-        <div className={ !isToggled ? "q-hidden" : "question-answer"}>
+        <div className="question-answer">
             <p>{ answer }</p>
         </div>
     );

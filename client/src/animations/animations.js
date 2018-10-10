@@ -1,5 +1,5 @@
 import React from 'react'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { CSSTransition, TransitionGroup, Transition } from 'react-transition-group'
 
 
 export const PopUp = props => {
@@ -50,13 +50,46 @@ export const Fade = (props) => {
 
 
 export const SlideDown = props => {
+    const { in: inProp } = props
     return (
         <CSSTransition 
             {...props}
-            in={true}
+            in={inProp}
             appear={true}
             timeout={800}
             classNames="slide-down"
         />
     )
 }
+
+
+const fadeDefaultStyles = {
+    opacity: 1,
+    transition: `opacity 500ms linear`
+}
+const fadeTransitionStyles = {
+    entering: { opacity: 0 },
+    entered:  { opacity: 1 },
+    exiting:  { opacity: 1 },
+    exited:   { opacity: 0 }
+}
+
+export const CardFade = props => {
+    const {isToggled, children} = props
+    return (
+         <Transition
+            in={isToggled}
+            timeout={300}>
+            { (state) => (
+                <div style={{
+                    ...fadeDefaultStyles,
+                    ...fadeTransitionStyles[state]
+                }}>
+                 { children }
+                </div>
+            )
+            }
+        </Transition>
+    )
+}
+

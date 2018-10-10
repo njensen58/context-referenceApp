@@ -182,7 +182,8 @@
 }
 
 .slide-down-enter-done {
-
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .slide-down-exit {
