@@ -5,7 +5,6 @@ import Toggle from '../../shared/Toggle'
 import SearchForm from './SearchForm'
 import { withStack } from '../../context/stackContext'
 import PublicStack from './PublicStack'
-import BottomNav from '../BottomNav'
 import './publicStack.css'
 
 

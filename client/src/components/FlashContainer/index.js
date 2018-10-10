@@ -1,9 +1,8 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import QuestionCard from './QuestionCard'
 import FlashNav from './FlashNav'
-import { Route } from 'react-router-dom'
+import Toggle from '../../shared/Toggle'
 import { withQuestion } from '../../context/questionContext'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Fade } from '../../animations/animations.js'
 import './flashStyles.css'
 
@@ -63,11 +62,15 @@ class FlashContainer extends Component {
         return (
             <div className="flash-container">
                 <button onClick={this.quit}>Quit</button>
-                    <div className="question-container">
-                        <Fade id={questions[count]._id}>
-                            <QuestionCard currentQuestion={questions[count]}/>
-                        </Fade> 
-                    </div>
+                <span className="question-count">{`${count + 1} / ${questions.length}`}</span>
+                    <Toggle render={({toggle, isToggled}) => 
+                        <div className="question-container">
+                            <Fade id={questions[count]._id}>
+                                <QuestionCard currentQuestion={questions[count]} toggle={toggle} isToggled={isToggled} {...this.state}/>
+                            </Fade> 
+                            <button onClick={ toggle } className="show-answer-btn"> Answer </button>
+                        </div>
+                    }/>
                 <FlashNav nextQ={ this.nextQuestion } prevQ={ this.prevQuestion }/>
             </div>
         )

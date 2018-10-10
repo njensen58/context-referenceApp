@@ -30,7 +30,6 @@ export const PageTransition = props => {
 }
 
 export const Fade = (props) => {
-    console.log(props)
     return (
         <TransitionGroup>         
             <CSSTransition

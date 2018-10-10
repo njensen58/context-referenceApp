@@ -7,7 +7,6 @@ import Stack from './Stack'
 import { withStack } from '../../context/stackContext'
 import { withUser } from '../../context/userContext'
 import { PopUp } from '../../animations/animations.js'
-import BottomNav from '../BottomNav'
 import './stack.css'
 
 
@@ -19,7 +18,6 @@ class StacksPage extends Component {
     } 
     
     render(){
-        console.log(this.props)
         const { currentStacks, createStack, deleteStack, editStack } = this.props
         return (
             <div className="stack-page">
